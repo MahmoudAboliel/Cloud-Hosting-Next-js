@@ -12,10 +12,10 @@ interface AdminDashboardLayoutProps {
 const AdminDashboardLayout = ({children}:AdminDashboardLayoutProps) => {
   return (
     <main className="h-[calc(100vh-150px)] flex justify-between">
-        <div className="bg-purple-600 text-white h-full w-14 lg:w-1/5 p-1 lg:p-5 pt-5 text-xl">
+        <div className="bg-purple-600 text-white h-full w-14 lg:w-1/5 p-5 pt-5 text-xl">
             <AdminSidebar />
         </div>
-        <div className="w-full">
+        <div className="w-full overflow-x-hidden">
             {children}
         </div>
     </main>

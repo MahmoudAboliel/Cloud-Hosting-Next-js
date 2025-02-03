@@ -6,13 +6,18 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 import { DOMAIN } from "@/utils/constants";
 import { useRouter } from "next/navigation";
+import { Article } from "@prisma/client";
 import ButtonSpinner from "../home/ButtonSpinner";
 
-const AddNewArticleForm = () => {
+interface EditArticleFormProps {
+    article: Article;
+}
+
+const EditArticleForm = ({ article }: EditArticleFormProps) => {
 
     const router = useRouter();
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState(article.title);
+    const [description, setDescription] = useState(article.description);
     const [loading, setLoading] = useState(false);
 
     const submitHandler = async (e:React.FormEvent) => {
@@ -23,10 +28,9 @@ const AddNewArticleForm = () => {
 
         try {
             setLoading(true);
-            await axios.post(`${DOMAIN}/api/articles`, { title, description });
-            setTitle("");
-            setDescription("");
-            toast.success("New Article Added");
+            await axios.put(`${DOMAIN}/api/articles/${article.id}`, { title, description });
+
+            toast.success("Edit Article Successfully");
             setLoading(false);
             router.refresh();
 
@@ -46,11 +50,11 @@ const AddNewArticleForm = () => {
             id="title"
             name="title"
             type="text"
-            label="Enter Article Title"
+            label="Edit Article Title"
             value={title}
             setValue={setTitle}
         />
-        <label className="inline-block ml-2 text-lg font-medium">Enter Article Description</label>
+        <label className="inline-block ml-2 text-lg font-medium">Edit Article Description</label>
         <textarea
             className="w-full resize-none outline-none border border-gray-300 rounded-lg p-2 text-xl text-gray-700"
             rows={5}
@@ -61,10 +65,10 @@ const AddNewArticleForm = () => {
         <button 
             type="submit"
             className="w-full h-[40px] text-xl font-semibold text-white bg-blue-400 hover:bg-blue-500 duration-500 rounded-lg p-1 ">
-            {loading ? <ButtonSpinner /> : "Add"}
+            {loading ? <ButtonSpinner /> : "Edit"} 
         </button>
     </form>
   );
 }
 
-export default AddNewArticleForm;
+export default EditArticleForm;

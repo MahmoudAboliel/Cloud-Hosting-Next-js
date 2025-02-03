@@ -62,7 +62,7 @@ const LoginForm = () => {
             type="submit"
             disabled={loading}
             className="h-[40px] disabled:cursor-not-allowed w-full text-xl font-semibold text-white bg-blue-400 hover:bg-blue-500 duration-500 rounded-lg p-1 ">
-            {loading ? <ButtonSpinner /> : "Login"} 
+            {loading ? <ButtonSpinner /> : "Login"}
         </button>
     </form>
   )

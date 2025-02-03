@@ -8,7 +8,7 @@ import axios from 'axios';
 import { DOMAIN } from "@/utils/constants";
 import ButtonSpinner from "../home/ButtonSpinner";
 
-const LoginForm = () => {
+const RegisterForm = () => {
     
     const router = useRouter();
     const [name, setName] = useState("");
@@ -75,7 +75,7 @@ const LoginForm = () => {
             {loading ? <ButtonSpinner /> : "Register"}
         </button>
     </form>
-  )
+  );
 }
 
-export default LoginForm
+export default RegisterForm;

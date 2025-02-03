@@ -29,9 +29,12 @@ const Articles = async ({ searchParams }:ArticlesPageProps) => {
   return (
     <section className="container m-auto px-5">
       <SearchArticleInput />
-      <div className="h-3/4 flex justify-center items-center flex-wrap my-2 gap-7">
+      <div className="h-3/4 mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 my-2 gap-2">
       {articles.map(article => (
-        <ArticleItem key={article.id} article={article} />
+        <ArticleItem 
+          className="w-full"
+          key={article.id} 
+          article={article} />
       ))}
       </div>
       <Pagination pageNumber={parseInt(pageNumber)} route="/articles" pages={pages} />

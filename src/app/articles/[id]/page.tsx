@@ -1,5 +1,5 @@
 import AddComment from "@/components/forms/AddComment";
-import CommentItem from "@/components/articles/CommentItem";
+import CommentItem from "@/components/comments/CommentItem";
 import { getSingleArticle } from "@/apiCalls/articleApiCall";
 import { SingleArticle } from "@/utils/types";
 import { cookies } from 'next/headers';

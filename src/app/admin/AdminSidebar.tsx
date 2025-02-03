@@ -11,7 +11,7 @@ const AdminSidebar = () => {
             <p className="hidden lg:block">Dashboard</p>
         </Link>
         <div className="mt-10 flex flex-col items-center lg:items-start gap-5">
-            <Link href='/admin/articles-table' className="w-fit flex items-center gap-2 lg:border-b border-gray-300 hover:text-yellow-200 transition">
+            <Link href='/admin/articles-table?pageNumber=1' className="w-fit flex items-center gap-2 lg:border-b border-gray-300 hover:text-yellow-200 transition">
                 <MdOutlineArticle />
                 <p className="hidden lg:block">Articles</p>
             </Link>
@@ -21,7 +21,7 @@ const AdminSidebar = () => {
             </Link>
         </div>
     </div>
-  )
+  );
 }
 
-export default AdminSidebar
+export default AdminSidebar;
